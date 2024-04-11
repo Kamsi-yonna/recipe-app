@@ -2,6 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  app: {
+    head: {
+      title: "Recipe App",
+    },
+  },
+
   runtimeConfig: {
     spoonacular: {
       apiKey: process.env.SPOONACULAR_API_KEY,
@@ -19,5 +25,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/ui"],
+  modules: ["@nuxt/ui", "@nuxt/image"],
 });
