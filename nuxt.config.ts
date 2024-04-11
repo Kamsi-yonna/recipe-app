@@ -7,4 +7,15 @@ export default defineNuxtConfig({
       apiKey: process.env.SPOONACULAR_API_KEY,
     },
   },
+
+  $development: {
+    nitro: {
+      storage: {
+        recipes: {
+          driver: "fs",
+          base: "recipes",
+        },
+      },
+    },
+  },
 });
