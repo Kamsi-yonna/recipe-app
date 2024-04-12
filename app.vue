@@ -1,34 +1,33 @@
 <template>
   <UContainer>
-    <h1 class="mt-4 font-bold capitalize text-2xl pt-12">
-      {{ recipe.title }}
-    </h1>
+    <section class="mt-12">
+      <h1 class="font-bold capitalize text-2xl">
+        {{ recipe.title }}
+      </h1>
 
-    <div class="flex gap-2 mt-2 capitalize">
-      <UBadge v-for="label in recipe.dishTypes" :label="label" />
-    </div>
+      <div class="flex gap-2 mt-2 capitalize">
+        <UBadge v-for="label in recipe.dishTypes" :label="label" />
+      </div>
+    </section>
 
-    <section class="mt-8 flex flex-col md:flex-row-reversed gap-4">
+    <section class="mt-8 flex flex-col md:flex-row-reversed gap-8">
       <NuxtImg
         :src="recipe.image"
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
       />
-      <div
-        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
-      >
+      <div class="flex flex-col gap-4 border border-gray-500 rounded-2xl p-4">
         <h1 class="uppercase text-xl">Dish Summary</h1>
         <p class="text-lg max-w-[90ch]" v-html="recipe.summary"></p>
       </div>
     </section>
 
-    <section>
-      <div
-        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
-      >
+    <section class="mt-8">
+      <div class="flex flex-col gap-4 border border-gray-500 rounded-2xl p-4">
         <div class="flex flex-col md:flex-row justify-between md:items-center">
           <h2 class="uppercase text-xl">Ingredients</h2>
         </div>
+
         <UTable
           class="uppercase"
           :rows="recipe.extendedIngredients"
@@ -59,10 +58,8 @@
       </div>
     </section>
 
-    <section class="py-2 md:py-8 mt-4">
-      <div
-        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
-      >
+    <section class="mt-8">
+      <div class="flex flex-col gap-4 border border-gray-500 rounded-2xl p-4">
         <h1 class="font-bold capitalize text-2xl">Steps</h1>
         <ol>
           <li
@@ -80,8 +77,8 @@
       </div>
     </section>
 
-    <section>
-      <div class="items-center mt-4 mb-8 text-xl">
+    <section class="mt-8 mb-8">
+      <div class="items-center text-xl">
         Original Ingredient -
         <UButton
           class="text-xl"
