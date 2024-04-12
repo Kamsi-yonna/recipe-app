@@ -20,6 +20,7 @@
       />
       <NuxtImg
         v-if="recipe.image"
+        provider="spoonacular"
         :src="recipe.image"
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
