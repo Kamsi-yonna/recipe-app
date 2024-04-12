@@ -2,6 +2,8 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  pages: true,
+
   app: {
     head: {
       title: "Recipe App",
