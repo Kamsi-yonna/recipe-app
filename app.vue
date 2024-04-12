@@ -101,10 +101,13 @@
 <script setup lang="ts">
 import type { InternalApi } from "nitropack";
 
-const { data: recipes } = await useFetch("/api/recipes");
+const { data: recipes } = await useFetch("/api/recipes", {
+  transform: (data) => data[(Math.random() * data.length) | 0],
+});
 // const randomRecipeIndex = Math.floor(Math.random() * recipes.value!.length);
 // const recipe = computed(() => recipes.value![randomRecipeIndex]);
-const recipe = recipes.value![30];
+// const recipe = recipes.value![30];
+const recipe = recipes.value!;
 
 const columnsToShow: Array<
   keyof InternalApi["/api/recipes"]["get"][number]["extendedIngredients"][number]
