@@ -14,7 +14,12 @@
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
       />
-      <p class="text-lg mt-4 max-w-[90ch]" v-html="recipe.summary"></p>
+      <div
+        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
+      >
+        <h1 class="uppercase text-xl">Dish Summary</h1>
+        <p class="text-lg max-w-[90ch]" v-html="recipe.summary"></p>
+      </div>
     </section>
 
     <section>
@@ -51,6 +56,43 @@
             </div>
           </template>
         </UTable>
+      </div>
+    </section>
+
+    <section class="py-2 md:py-8 mt-4">
+      <div
+        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
+      >
+        <h1 class="font-bold capitalize text-2xl">Steps</h1>
+        <ol>
+          <li
+            class="flex items-baseline gap-2 mt-2"
+            v-for="{ step, number } in recipe.analyzedInstructions?.[0].steps"
+            :key="number"
+          >
+            <span
+              class="flex-shrink-0 inline-flex items-center justify-center rounded-full text-xs px-2 py-2 bg-primary-50 dark:bg-primary-400 dark:bg-opacity-10 text-primary-500 dark:text-primary-400 ring-1 ring-inset ring-primary-500 dark:ring-primary-400 ring-opacity-25 dark:ring-opacity-25 font-bold h-5 w-5"
+            >
+              {{ number }}.</span
+            >{{ step }}
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="items-center mt-4 mb-8 text-xl">
+        Original Ingredient -
+        <UButton
+          class="text-xl"
+          :to="recipe.sourceUrl"
+          target="_blank"
+          :label="recipe.sourceName"
+        >
+          <template #trailing>
+            <UIcon name="i-heroicons-arrow-right-20-solid" class="w-5 h-5" />
+          </template>
+        </UButton>
       </div>
     </section>
   </UContainer>
