@@ -6,7 +6,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Recipe App",
+      title: "Reciply",
     },
   },
 
@@ -24,14 +24,6 @@ export default defineNuxtConfig({
       isr: 60 * 60 * 24,
     },
   },
-
-  // image: {
-  //   providers: {
-  //     spoonacular: {
-  //       provider: "~/providers/spoonacular.ts",
-  //     },
-  //   },
-  // },
 
   image: {
     providers: {
