@@ -4,7 +4,7 @@
       {{ recipe.title }}
     </h1>
 
-    <div class="flex gap-1 mt-2">
+    <div class="flex gap-2 mt-2 capitalize">
       <UBadge v-for="label in recipe.dishTypes" :label="label" />
     </div>
 
@@ -21,21 +21,34 @@
       <div
         class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
       >
-        <h2 class="uppercase text-xl">Ingredients</h2>
+        <div class="flex flex-col md:flex-row justify-between md:items-center">
+          <h2 class="uppercase text-xl">Ingredients</h2>
+        </div>
         <UTable
           class="uppercase"
           :rows="recipe.extendedIngredients"
           :columns="columns"
         >
           <template #name-data="{ row }">
-            <h1 class="capitalize">
-              {{ row.name }}
-              ({{
-                [row.measures[unit].amount, row.measures[unit].unitLong]
-                  .filter(Boolean)
-                  .join(" ")
-              }})
-            </h1>
+            <div class="flex flex-row gap-4 items-center">
+              <NuxtImg
+                provider="spoonacular"
+                class="rounded-xl"
+                :src="row.image"
+                height="40"
+                width="40"
+                :alt="`Image of ${row.name}`"
+              />
+
+              <h1 class="capitalize">
+                {{ row.name }}
+                ({{
+                  [row.measures[unit].amount, row.measures[unit].unitLong]
+                    .filter(Boolean)
+                    .join(" ")
+                }})
+              </h1>
+            </div>
           </template>
         </UTable>
       </div>
