@@ -8,19 +8,36 @@
       <UBadge v-for="label in recipe.dishTypes" :label="label" />
     </div>
 
-    <section class="mt-4 flex flex-col md:flex-row-reversed gap-4">
+    <section class="mt-8 flex flex-col md:flex-row-reversed gap-4">
       <NuxtImg
         :src="recipe.image"
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
       />
-      <p class="text-lg max-w-[50ch]" v-html="recipe.summary"></p>
+      <p class="text-lg mt-4 max-w-[90ch]" v-html="recipe.summary"></p>
     </section>
 
     <section>
-      <div>
-        <h2>Ingredients</h2>
-        <UTable :rows="recipe.extendedIngredients" :columns="columns"> </UTable>
+      <div
+        class="flex flex-col gap-4 mt-8 border border-gray-500 rounded-2xl p-4"
+      >
+        <h2 class="uppercase text-xl">Ingredients</h2>
+        <UTable
+          class="uppercase"
+          :rows="recipe.extendedIngredients"
+          :columns="columns"
+        >
+          <template #name-data="{ row }">
+            <h1 class="capitalize">
+              {{ row.name }}
+              ({{
+                [row.measures[unit].amount, row.measures[unit].unitLong]
+                  .filter(Boolean)
+                  .join(" ")
+              }})
+            </h1>
+          </template>
+        </UTable>
       </div>
     </section>
   </UContainer>
@@ -30,13 +47,18 @@
 import type { InternalApi } from "nitropack";
 
 const { data: recipes } = await useFetch("/api/recipes");
-const recipe = recipes.value![5];
+// const randomRecipeIndex = Math.floor(Math.random() * recipes.value!.length);
+// const recipe = computed(() => recipes.value![randomRecipeIndex]);
+const recipe = recipes.value![30];
 
 const columnsToShow: Array<
   keyof InternalApi["/api/recipes"]["get"][number]["extendedIngredients"][number]
 > = ["name"];
 
 const columns = columnsToShow.map((col) => ({ key: col, label: col }));
+
+const metric = ref(true);
+const unit = computed(() => (metric.value ? "metric" : "us"));
 </script>
 
 <style scoped></style>
