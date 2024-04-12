@@ -12,9 +12,11 @@
 
     <section class="mt-8 flex flex-col md:flex-row-reversed gap-8">
       <NuxtImg
+        v-if="recipe.image"
         :src="recipe.image"
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
+        v-bind="recipe.image.match(/-(?<width>\d+)x(?<height>\d+)\./)?.groups"
       />
       <div class="flex flex-col gap-4 border border-gray-500 rounded-2xl p-4">
         <h1 class="uppercase text-xl">Dish Summary</h1>
