@@ -16,14 +16,31 @@ export default defineNuxtConfig({
     },
     spoonacular: {
       apiKey: process.env.SPOONACULAR_API_KEY,
-      baseURL: process.env.BASE_URL,
     },
   },
+
+  routeRules: {
+    "/**": {
+      isr: 60 * 60 * 24,
+    },
+  },
+
+  // image: {
+  //   providers: {
+  //     spoonacular: {
+  //       provider: "~/providers/spoonacular.ts",
+  //     },
+  //   },
+  // },
 
   image: {
     providers: {
       spoonacular: {
+        name: "spoonacular",
         provider: "~/providers/spoonacular.ts",
+        options: {
+          baseURL: process.env.BASE_URL,
+        },
       },
     },
   },
