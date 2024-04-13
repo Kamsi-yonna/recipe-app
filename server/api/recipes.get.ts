@@ -78,7 +78,7 @@ export default defineCachedEventHandler(
         query: {
           limitLicense: true,
           number: 100,
-          apiKey: useRuntimeConfig().spoonacular.apiKey,
+          apiKey: useRuntimeConfig().public.apiKey,
         },
       }
     );
