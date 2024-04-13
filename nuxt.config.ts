@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       baseURL: process.env.BASE_URL,
+      apiKey: process.env.SPOONACULAR_API_KEY,
     },
     spoonacular: {
       apiKey: process.env.SPOONACULAR_API_KEY,
