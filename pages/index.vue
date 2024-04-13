@@ -13,7 +13,6 @@
     <section class="mt-8 flex flex-col md:flex-row-reversed gap-8">
       <img
         v-if="recipe.image"
-        provider="spoonacular"
         :src="recipe.image"
         :alt="recipe.title"
         class="object-cover rounded-3xl w-full"
