@@ -1,75 +1,28 @@
-# Nuxt 3 Minimal Starter
+# Recipe Hub
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A small side project built with [Nuxt](https://nuxt.com/).
 
-## Setup
+## Features
 
-Make sure to install the dependencies:
+- Built with [Nuxt 3](https://nuxt.com/)
+- Server API routes using [Nitro](https://nuxt.com/docs/guide/concepts/server-engine)
+- Usage of [runtime config](https://nuxt.com/docs/guide/going-further/runtime-config)
+- Uses built-in [storage layer](https://nuxt.com/docs/guide/directory-structure/server#server-storage)
+- Responsive images (and custom provider) with [Nuxt Image](https://image.nuxt.com/)
+- Interface with [Nuxt UI](https://ui.nuxt.com/) and [TailwindCSS](https://tailwindcss.nuxtjs.org/)
+
+### Setup
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# install dependencies
 pnpm install
 
-# yarn
-yarn install
+# serve in dev mode, with hot reload at localhost:3000
+pnpm dev
 
-# bun
-bun install
+# build for production (universal)
+pnpm build
+
+# preview in production mode
+pnpm preview
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
