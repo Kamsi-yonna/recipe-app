@@ -14,9 +14,7 @@ export default defineNuxtConfig({
     public: {
       baseURL: process.env.BASE_URL,
       apiKey: process.env.SPOONACULAR_API_KEY,
-    },
-    spoonacular: {
-      apiKey: process.env.SPOONACULAR_API_KEY,
+      imgURL: process.env.SPOONACULAR_IMG_URL,
     },
   },
 
@@ -33,6 +31,7 @@ export default defineNuxtConfig({
         provider: "~/providers/spoonacular.ts",
         options: {
           baseURL: process.env.BASE_URL,
+          imgURL: process.env.SPOONACULAR_IMG_URL,
         },
       },
     },
