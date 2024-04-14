@@ -37,12 +37,12 @@
         >
           <template #name-data="{ row }">
             <div class="flex flex-row gap-4 items-center">
-              <!-- provider="spoonacular" -->
               <NuxtImg
                 class="rounded-xl"
                 :src="row.image"
                 height="40"
                 width="40"
+                provider="spoonacular"
                 :alt="`Image of ${row.name}`"
               />
 
