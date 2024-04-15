@@ -2,7 +2,7 @@ const defaults = {
   meta: {
     title: "Recipe Hub",
     ogTitle: "Recipe Hub",
-    description: "Recipe Hub",
+    description: "A hub for recipes",
     ogDescription: "Recipe Hub",
     ogImage: "/favicon.ico",
     twitterCard: "summary_large_image",
