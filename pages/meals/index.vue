@@ -9,15 +9,15 @@
 
     <section class="flex flex-col md:grid md:grid-cols-3 gap-3 mt-4">
       <div v-for="recipe in recipes!.slice(0, 18)">
-        <nuxt-link :to="`/meals/${recipe.id}`">
-          <UTooltip :text="recipe.title" :popper="{ placement: 'bottom' }" \>
+        <NuxtLink :to="`/meals/${recipe.id}`">
+          <UTooltip :text="recipe.title" :popper="{ placement: 'bottom' }">
             <img
               :src="recipe.image"
               :alt="recipe.title"
               class="object-cover rounded-sm"
             />
           </UTooltip>
-        </nuxt-link>
+        </NuxtLink>
       </div>
     </section>
   </UContainer>

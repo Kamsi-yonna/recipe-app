@@ -5,8 +5,16 @@
         {{ recipe.title }}
       </h1>
 
-      <div class="flex gap-2 mt-2 capitalize">
-        <UBadge v-for="label in recipe.dishTypes" :label="label" />
+      <div class="mt-2 capitalize flex justify-between">
+        <div class="flex items-center gap-2">
+          <UBadge v-for="label in recipe.dishTypes" :label="label" />
+        </div>
+
+        <NuxtLink to="/meals">
+          <UButton label="Meals" color="green">
+            <UIcon name="i-heroicons-arrow-right-20-solid" />
+          </UButton>
+        </NuxtLink>
       </div>
     </section>
 
@@ -38,11 +46,11 @@
           <template #name-data="{ row }">
             <div class="flex flex-row gap-4 items-center">
               <NuxtImg
+                provider="spoonacular"
                 class="rounded-xl"
                 :src="row.image"
                 height="40"
                 width="40"
-                provider="spoonacular"
                 :alt="`Image of ${row.name}`"
               />
 
@@ -99,7 +107,6 @@
 
 <script setup lang="ts">
 import type { InternalApi } from "nitropack";
-
 import type { Recipe } from "~/types/recipe";
 
 const route = useRoute();
@@ -126,6 +133,10 @@ const columns = columnsToShow.map((col) => ({ key: col, label: col }));
 
 const metric = ref(true);
 const unit = computed(() => (metric.value ? "metric" : "us"));
+
+const metaDef = useDefault("meta");
+
+useSeoMeta({ ...metaDef });
 </script>
 
 <style scoped></style>

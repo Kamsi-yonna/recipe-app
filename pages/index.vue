@@ -5,8 +5,17 @@
         {{ recipe.title }}
       </h1>
 
-      <div class="flex gap-2 mt-2 capitalize">
-        <UBadge v-for="label in recipe.dishTypes" :label="label" />
+      <div class="mt-2 capitalize flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <UBadge v-for="label in recipe.dishTypes" :label="label" />
+        </div>
+
+        <NuxtLink to="/meals" class="items-center">
+          <UButton color="green"
+            ><p>View Meals</p>
+            <UIcon name="i-heroicons-arrow-right-20-solid" />
+          </UButton>
+        </NuxtLink>
       </div>
     </section>
 
