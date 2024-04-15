@@ -29,7 +29,7 @@ const operationsGenerator = createOperationsGenerator();
 
 export const getImage: ProviderGetImage = (
   src,
-  { modifiers = {}, imgURL = "https://img.spoonacular.com" } = {}
+  { modifiers = {}, imgURL = "https://img.spoonacular.com/cdn" } = {}
 ) => {
   const sizes = [100, 250, 500];
   const size = modifiers.width || modifiers.height;

@@ -69,7 +69,7 @@ const recipeSchema = z.object({
   instructions: z.string(),
 });
 
-export default defineEventHandler(
+export default defineCachedEventHandler(
   async (event) => {
     console.log("making fresh recipes request");
     const { recipes } = await $fetch<{ recipes: RecipeResponse }>(
@@ -88,12 +88,12 @@ export default defineEventHandler(
       console.log(e);
       return [];
     }
+  },
+  {
+    base: "recipes",
+    getKey: () => "recipes",
+    shouldBypassCache: () => false,
+    maxAge: 1000 * 60 * 60 * 24,
+    staleMaxAge: 1000 * 60 * 60 * 24 * 7,
   }
-  // {
-  //   base: "recipes",
-  //   getKey: () => "recipes",
-  //   shouldBypassCache: () => false,
-  //   maxAge: 1000 * 60 * 60 * 24,
-  //   staleMaxAge: 1000 * 60 * 60 * 24 * 7,
-  // }
 );
