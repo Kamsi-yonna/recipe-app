@@ -5,9 +5,7 @@ export default defineNuxtConfig({
   pages: true,
 
   app: {
-    head: {
-      title: "Reciply",
-    },
+    head: {},
   },
 
   runtimeConfig: {

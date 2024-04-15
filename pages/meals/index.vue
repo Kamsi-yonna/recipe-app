@@ -10,7 +10,7 @@
     <section class="flex flex-col md:grid md:grid-cols-3 gap-3 mt-4">
       <div v-for="recipe in recipes!.slice(0, 18)">
         <nuxt-link :to="`/meals/${recipe.id}`">
-          <UTooltip :text="recipe.title" \>
+          <UTooltip :text="recipe.title" :popper="{ placement: 'bottom' }" \>
             <img
               :src="recipe.image"
               :alt="recipe.title"
@@ -25,6 +25,10 @@
 
 <script setup lang="ts">
 const { data: recipes } = await useFetch("/api/recipes", {});
+
+const metaDef = useDefault("meta");
+
+useSeoMeta({ ...metaDef });
 </script>
 
 <style scoped></style>
