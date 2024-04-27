@@ -1,6 +1,6 @@
 # Recipe Hub
 
-A small side project built with [Nuxt](https://nuxt.com/).
+A small side project built with [Nuxt](https://nuxt.com/) and leveraging the [Spoonacular Api](https://spoonacular.com/food-api). We get a variety of recipes and display a bunch of details about them.
 
 ## Features
 
@@ -8,6 +8,7 @@ A small side project built with [Nuxt](https://nuxt.com/).
 - Server API routes using [Nitro](https://nuxt.com/docs/guide/concepts/server-engine)
 - Usage of [runtime config](https://nuxt.com/docs/guide/going-further/runtime-config)
 - Uses built-in [storage layer](https://nuxt.com/docs/guide/directory-structure/server#server-storage)
+- Recipes from [Spoonacular Api](https://spoonacular.com/food-api)
 - Responsive images (and custom provider) with [Nuxt Image](https://image.nuxt.com/)
 - Interface with [Nuxt UI](https://ui.nuxt.com/) and [TailwindCSS](https://tailwindcss.nuxtjs.org/)
 
