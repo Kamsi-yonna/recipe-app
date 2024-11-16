@@ -5,8 +5,8 @@
         {{ recipe.title }}
       </h1>
 
-      <div class="mt-2 capitalize flex justify-between items-center">
-        <div class="flex items-center gap-2">
+      <div class="mt-2 gap-2 capitalize flex flex-col justify-between items-start">
+        <div class="flex flex-wrap items-center gap-2">
           <UBadge v-for="label in recipe.dishTypes" :label="label" />
         </div>
 
@@ -58,9 +58,9 @@
               <h1 class="capitalize">
                 {{ row.name }}
                 ({{
-                  [row.measures[unit].amount, row.measures[unit].unitLong]
-                    .filter(Boolean)
-                    .join(" ")
+                [row.measures[unit].amount, row.measures[unit].unitLong]
+                .filter(Boolean)
+                .join(" ")
                 }})
               </h1>
             </div>
